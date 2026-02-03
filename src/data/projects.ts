@@ -1,4 +1,4 @@
-export interface ProjectSubsections {
+export interface Project {
   type: "project";
   id: string;
   title: string;
@@ -8,7 +8,7 @@ export interface ProjectSubsections {
   textColor?: string;
 }
 
-export const projects: ProjectSubsections[] = [
+export const projects: Project[] = [
   {
     type: "project",
     id: "test1",

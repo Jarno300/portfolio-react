@@ -1,13 +1,6 @@
-import { projects, type ProjectSubsections } from "./project-subsections";
+import { projects, type Project } from "./projects";
 
-// Base interface for all subsection types
-export interface BaseSubSection {
-  id: string;
-  type: string;
-}
-
-// Union type for all possible subsection types
-export type SubSection = ProjectSubsections; // Add more types like: ProjectSubsections | AboutData | etc.
+export type SubSection = Project;
 
 export interface SectionData {
   id: string;
@@ -20,18 +13,10 @@ export interface SectionData {
 
 export const sections: SectionData[] = [
   {
-    id: "Welcome",
-    title: "Welcome to My Portfolio",
-    description:
-      "I'm a developer passionate about building amazing web experiences.",
-    backgroundColor: "white",
-  },
-  {
     id: "About",
-    title: "About Me",
+    title: "me",
     description: "Learn more about my background, skills, and experience.",
-    backgroundColor: "black",
-    textColor: "white",
+    backgroundColor: "white",
   },
   {
     id: "Projects",

@@ -1,0 +1,150 @@
+.mainContainer {
+  top: 0;
+  display: flex;
+  width: 100%;
+  padding: 2rem 5rem;
+  padding-top: calc((100vh - 40rem) / 2);
+  height: 100vh;
+  background-color: var(--color-background-dark);
+  align-items: flex-start;
+  position: relative;
+  transition: padding 1s ease 0.2s;
+}
+
+.profileFrame {
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 21%;
+  box-shadow: -0.9rem -0.9rem 0 0 var(--color-accent-orange);
+}
+
+.profilePicture {
+  width: 30rem;
+  border-radius: 20%;
+  display: block;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  color: var(--color-text-light);
+}
+
+.titleHighlight {
+  color: var(--color-accent-orange);
+}
+
+.subtitle {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-text-light);
+  font-family: var(--font-primary);
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 5rem;
+  width: 100%;
+}
+
+nav {
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+}
+
+.navLink {
+  display: flex;
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-family: var(--font-primary);
+  border-radius: 8px;
+}
+
+.navLinkText {
+  display: inline-flex;
+}
+
+.navLetter {
+  display: inline-block;
+  color: var(--color-text-light);
+  transition: color 0.3s ease;
+}
+
+.navLink:hover .navLetter {
+  animation: letterColorToggle 0.3s ease forwards;
+}
+
+@keyframes letterColorToggle {
+  0% {
+    color: var(--color-text-light);
+  }
+  50% {
+    color: var(--color-accent-orange);
+  }
+  100% {
+    color: var(--color-text-light);
+  }
+}
+
+.mainContainer.collapsed {
+  padding-top: 1rem;
+  align-items: flex-start;
+  height: auto;
+  padding: 1rem 5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 1s ease 0.2s;
+}
+
+.textContainer.collapsed {
+  height: auto;
+  justify-content: flex-start;
+  padding: 1rem 2rem;
+}
+
+.mainContainer.collapsed .profilePicture {
+  width: 10rem;
+  transition: width 1s ease 0.2s;
+}
+
+.mainContainer.collapsed .profileFrame {
+  padding: 0.25rem;
+  box-shadow: -0.3rem -0.3rem 0 0 var(--color-accent-orange);
+  transition: all 1s ease 0.2s;
+}
+
+.mainContainer.collapsed .textContainer {
+  height: auto;
+  padding: 1rem 2rem;
+  transition: all 1s ease 0.2s;
+}
+
+.mainContainer.collapsed .title {
+  font-size: 2rem;
+  transition: font-size 1s ease 0.2s;
+}
+
+.mainContainer.collapsed .subtitle {
+  font-size: 1rem;
+  transition: font-size 1s ease 0.2s;
+}
+
+.mainContainer.collapsed nav {
+  flex-direction: row;
+  gap: 2rem;
+  transition: all 1s ease 0.2s;
+}
+
+.contentContainer {
+  padding: 2rem 5rem;
+  min-height: 100vh;
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
