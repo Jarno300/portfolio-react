@@ -1,7 +1,7 @@
 import About from "../../about/About.tsx";
 import Projects from "../../projects/Projects.tsx";
 import Contact from "../../contact/Contact.tsx";
-import heroStyles from "../../hero/Hero.module.css";
+import contentStyles from "./ContentFrame.module.css";
 import carouselStyles from "./CarouselFrame.module.css";
 
 interface ContentFrameProps {
@@ -27,7 +27,7 @@ export default function ContentFrame({ activeSection }: ContentFrameProps) {
   const isCarousel = activeSection === "projects";
   const frameClassName = isCarousel
     ? carouselStyles.carouselFrame
-    : heroStyles.contentFrame;
+    : contentStyles.contentFrame;
 
   return (
     <div key={activeSection} className={frameClassName}>

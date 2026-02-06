@@ -1,6 +1,7 @@
 import { projects } from "../../data/projects";
 import { useState } from "react";
 import styles from "./Projects.module.css";
+import githubIcon from "../../assets/icons/github.svg";
 
 export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,10 +24,6 @@ export default function Projects() {
   return (
     <div className={styles.projectWrapper}>
       <div className={styles.projectContainer}>
-        <button className={styles.navButton} onClick={goPrev}>
-          {"<"}
-        </button>
-
         <div className={styles.carouselTrack}>
           <div
             className={`${styles.projectCard} ${styles.prevCard}`}
@@ -41,44 +38,40 @@ export default function Projects() {
             <div className={styles.projectContent}>
               <h2>{currentProject.title}</h2>
               <p>{currentProject.description}</p>
-              {currentProject.githubUrl && (
-                <a
-                  href={currentProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.githubLink}
-                >
-                  View on GitHub →
-                </a>
-              )}
+              <div className={styles.bottomRow}>
+                <div className={styles.iconsRow}>
+                  {currentProject.icons && currentProject.icons.length > 0 && (
+                    <>
+                      {currentProject.icons.map((icon, index) => (
+                        <img
+                          key={index}
+                          src={icon}
+                          alt={`Technology ${index + 1}`}
+                          className={styles.icon}
+                        />
+                      ))}
+                    </>
+                  )}
+                </div>
+                {currentProject.githubUrl && (
+                  <a
+                    href={currentProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.githubLink}
+                  >
+                    <img src={githubIcon} alt="GitHub" />
+                  </a>
+                )}
+              </div>
             </div>
           </div>
-
           <div
             className={`${styles.projectCard} ${styles.nextCard}`}
             style={{ backgroundImage: `url(${nextProject.image})` }}
             onClick={goNext}
           ></div>
         </div>
-
-        <button className={styles.navButton} onClick={goNext}>
-          {">"}
-        </button>
-      </div>
-
-      <div className={styles.iconsRow}>
-        {currentProject.icons && currentProject.icons.length > 0 && (
-          <>
-            {currentProject.icons.map((icon, index) => (
-              <img
-                key={index}
-                src={icon}
-                alt={`Technology ${index + 1}`}
-                className={styles.icon}
-              />
-            ))}
-          </>
-        )}
       </div>
     </div>
   );

@@ -1,0 +1,52 @@
+.contentFrame {
+  padding: 2rem;
+  min-height: 60vh;
+  max-height: 60vh;
+  max-width: 80rem;
+  background-color: var(--color-background-dark);
+  border-radius: 2rem;
+  box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  border: 0.3rem solid var(--color-background-dark);
+  transition: all 0.3s ease;
+  font-family: var(--font-primary);
+  animation: shadowSlideIn 0.4s ease-out;
+  overflow: auto;
+}
+
+.contentFrame::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+.contentFrame::-webkit-scrollbar-track {
+  border-radius: 30px;
+  margin: 1.5rem 0;
+}
+
+.contentFrame::-webkit-scrollbar-thumb {
+  background: var(--color-background-dark);
+  border-radius: 30px;
+  border: 2px solid var(--color-background-lighter);
+}
+
+.contentFrame::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-orange);
+  opacity: 0.8;
+}
+
+@keyframes shadowSlideIn {
+  0% {
+    box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  }
+  25% {
+    box-shadow: 0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  }
+  50% {
+    box-shadow: 0.5rem 0.5rem 0 0 var(--color-accent-orange);
+  }
+  75% {
+    box-shadow: -0.5rem 0.5rem 0 0 var(--color-accent-orange);
+  }
+  100% {
+    box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  }
+}

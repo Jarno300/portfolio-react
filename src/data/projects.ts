@@ -1,4 +1,4 @@
-import project1 from "../assets/images/project1.jpg";
+import project1 from "../assets/images/project-portfolio.png";
 import project2 from "../assets/images/project2.jpg";
 import project3 from "../assets/images/project3.jpg";
 import css3 from "../assets/icons/CSS3.png";
@@ -20,7 +20,7 @@ export const projects: Project[] = [
     id: 0,
     title: "Portfolio website",
     description:
-      "This is my personal portfolio website showcasing my projects and skills. Built with React, TypeScript and CSS.",
+      "This is my personal portfolio website showcasing my projects and skills.",
     image: project1,
     githubUrl: "https://github.com/Jarno300/portfolio-react",
     icons: [react, typeScript, css3, html5],

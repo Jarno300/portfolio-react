@@ -5,11 +5,11 @@ export default function Contact() {
   return (
     <div className={styles.contactContainer}>
       <h1>Get in Touch</h1>
-      
+
       <div className={styles.contactGrid}>
         <div className={styles.contactItem}>
           <span className={styles.contactLabel}>Email</span>
-          <a 
+          <a
             href={`mailto:${contactInfo.email}`}
             className={`${styles.contactValue} ${styles.contactLink}`}
           >
@@ -19,8 +19,8 @@ export default function Contact() {
 
         <div className={styles.contactItem}>
           <span className={styles.contactLabel}>Phone</span>
-          <a 
-            href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
+          <a
+            href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
             className={`${styles.contactValue} ${styles.contactLink}`}
           >
             {contactInfo.phone}
@@ -29,7 +29,7 @@ export default function Contact() {
 
         <div className={styles.contactItem}>
           <span className={styles.contactLabel}>LinkedIn</span>
-          <a 
+          <a
             href={contactInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
@@ -41,7 +41,7 @@ export default function Contact() {
 
         <div className={styles.contactItem}>
           <span className={styles.contactLabel}>GitHub</span>
-          <a 
+          <a
             href={`https://${contactInfo.github}`}
             target="_blank"
             rel="noopener noreferrer"
