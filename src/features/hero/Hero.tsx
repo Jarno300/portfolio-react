@@ -2,59 +2,46 @@ import styles from "./Hero.module.css";
 import profilePicture from "../../assets/images/me-blur.jpg";
 import ProfileImage from "./ProfileImage";
 import HeroNavigation from "./HeroNavigation.tsx";
-import { useState, useEffect } from "react";
 
-const navItems = [
-  { href: "about", label: "About" },
-  { href: "projects", label: "Projects" },
-  { href: "contact", label: "Contact" },
-];
+interface NavItem {
+  href: string;
+  label: string;
+}
 
-export default function Hero() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [delayedActiveSection, setDelayedActiveSection] = useState<
-    string | null
-  >(null);
+interface HeroProps {
+  isCollapsed: boolean;
+  navItems: NavItem[];
+  onNavigate: (href: string) => void;
+  onProfileClick: () => void;
+}
 
-  const handleNavigation = (href: string) => {
-    setIsCollapsed(true);
-    setActiveSection(href);
-  };
-
-  useEffect(() => {
-    if (activeSection) {
-      const timer = setTimeout(() => {
-        setDelayedActiveSection(activeSection);
-      }, 1000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [activeSection]);
-
+export default function Hero({
+  isCollapsed,
+  navItems,
+  onNavigate,
+  onProfileClick,
+}: HeroProps) {
   return (
-    <>
-      <div
-        className={`${styles.mainContainer} ${isCollapsed ? styles.collapsed : ""}`}
-      >
-        <ProfileImage src={profilePicture} alt="Profile" />
+    <div
+      className={`${styles.heroContainer} ${isCollapsed ? styles.collapsed : ""}`}
+    >
+      <ProfileImage
+        src={profilePicture}
+        alt="Profile"
+        onClick={onProfileClick}
+      />
 
-        <div className={styles.textContainer}>
+      <div className={styles.textContainer}>
+        <div className={styles.titleContainer}>
           <h1 className={styles.title}>
             Jarno <span className={styles.titleHighlight}>Mommens</span>
           </h1>
 
           <p className={styles.subtitle}>SOFTWARE DEVELOPER</p>
-
-          <HeroNavigation items={navItems} onNavigate={handleNavigation} />
         </div>
+
+        <HeroNavigation items={navItems} onNavigate={onNavigate} />
       </div>
-
-      {delayedActiveSection && (
-        <div className={styles.contentContainer}>
-          <h2>Content for {delayedActiveSection}</h2>
-        </div>
-      )}
-    </>
+    </div>
   );
 }

@@ -1,0 +1,85 @@
+.aboutNav {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  gap: 1rem;
+}
+
+.aboutNavLink {
+  color: var(--color-text-dark);
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 1px solid var(--color-accent-orange);
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: var(--color-background-lighter);
+  transition: all 0.3s ease;
+}
+
+.aboutNavLink:hover {
+  background-color: var(--color-accent-orange);
+  color: var(--color-background-lighter);
+}
+
+.aboutNavLink.active {
+  font-weight: bold;
+  background-color: var(--color-accent-orange);
+  color: var(--color-background-lighter);
+}
+
+.aboutSection {
+  margin-top: 2rem;
+}
+
+.aboutItem {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 2px solid var(--color-accent-orange);
+  border-radius: 12px;
+  background-color: var(--color-background-lighter);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.aboutItemTitle {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.5rem;
+  color: var(--color-accent-orange);
+  font-weight: 600;
+}
+
+.aboutItemSubtitle {
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--color-text-dark);
+}
+
+.aboutItemPeriod {
+  margin: 0 0 1rem 0;
+  font-style: italic;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.aboutItemDetails {
+  margin: 0 0 1rem 0;
+}
+
+.aboutItemList {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  list-style-position: outside;
+}
+
+.aboutItemList li {
+  margin-bottom: 0.5rem;
+}
+
+.aboutItemMeta {
+  margin-bottom: 0.5rem;
+}
+
+.aboutItemMetaLast {
+  margin-bottom: 0;
+}

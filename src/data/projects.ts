@@ -1,34 +1,36 @@
+import project1 from "../assets/images/project1.jpg";
+import project2 from "../assets/images/project2.jpg";
+import project3 from "../assets/images/project3.jpg";
+
 export interface Project {
-  type: "project";
-  id: string;
+  id: number;
   title: string;
   description: string;
-  images: string[];
-  backgroundColor?: string;
-  textColor?: string;
+  image: string;
+  githubUrl?: string;
 }
 
 export const projects: Project[] = [
   {
-    type: "project",
-    id: "test1",
-    title: "project test1 title",
+    id: 0,
+    title: "Portfolio website",
     description:
-      "I'm a developer passionate about building amazing web experiences.",
-    images: [],
+      "This is my personal portfolio website showcasing my projects and skills. Built with React and TypeScript.",
+    image: project1,
+    githubUrl: "",
   },
   {
-    type: "project",
-    id: "test2",
+    id: 1,
     title: "project test2 title",
-    description: "Learn more about my background, skills, and experience.",
-    images: [],
+    description:
+      "description of project test2. This is a longer description to test the layout and styling of the project item component.",
+    image: project2,
   },
   {
-    type: "project",
-    id: "test3",
+    id: 2,
     title: "project test3 title",
-    description: "Check out some of the projects I've worked on.",
-    images: [],
+    description:
+      "description of project test3. This is a longer description to test the layout and styling of the project item component.",
+    image: project3,
   },
 ];

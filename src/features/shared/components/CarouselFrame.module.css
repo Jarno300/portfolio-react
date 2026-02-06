@@ -1,0 +1,11 @@
+.carouselFrame {
+  min-height: 60vh;
+  max-height: 60vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary);
+  overflow-x: visible;
+  overflow-y: visible;
+}

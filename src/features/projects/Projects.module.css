@@ -1,0 +1,103 @@
+.projectContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.carouselTrack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  min-width: 120rem;
+  height: 50vh;
+  overflow: visible;
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.5s ease;
+  flex-shrink: 0;
+}
+
+.projectContent {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  color: white;
+  text-align: center;
+}
+
+.projectContent h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+}
+
+.projectContent p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.prevCard,
+.nextCard {
+  width: 20rem;
+  height: 30vh;
+  opacity: 0.6;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prevCard:hover,
+.nextCard:hover {
+  opacity: 0.8;
+}
+
+.prevCard {
+  transform: scale(0.85);
+  margin-right: -8rem;
+}
+
+.nextCard {
+  transform: scale(0.85);
+  margin-left: -8rem;
+}
+
+.currentCard {
+  width: 50rem;
+  height: 45vh;
+  z-index: 2;
+  opacity: 1;
+}
+
+.navButton {
+  background: var(--color-accent-orange);
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.navButton:hover {
+  transform: scale(1.1);
+  background: var(--color-accent-orange);
+  opacity: 0.8;
+}

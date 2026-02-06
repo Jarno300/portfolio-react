@@ -1,5 +1,9 @@
 .app {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  display: grid;
-  grid-auto-flow: row;
+  width: 80%;
+  margin: 0 auto;
+  gap: 2rem;
+  overflow: visible;
 }

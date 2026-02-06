@@ -1,12 +1,10 @@
-.mainContainer {
+.heroContainer {
   top: 0;
   display: flex;
   width: 100%;
-  padding: 2rem 5rem;
-  padding-top: calc((100vh - 40rem) / 2);
   height: 100vh;
   background-color: var(--color-background-dark);
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   transition: padding 1s ease 0.2s;
 }
@@ -15,7 +13,8 @@
   display: inline-block;
   padding: 0.5rem;
   border-radius: 21%;
-  box-shadow: -0.9rem -0.9rem 0 0 var(--color-accent-orange);
+  box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  animation: shadowSlideIn 1s ease-out;
 }
 
 .profilePicture {
@@ -45,9 +44,16 @@
 .textContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: 100vh;
   padding: 5rem;
   width: 100%;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 5em;
 }
 
 nav {
@@ -92,15 +98,29 @@ nav {
   }
 }
 
-.mainContainer.collapsed {
-  padding-top: 1rem;
+.heroContainer.collapsed {
   align-items: flex-start;
-  height: auto;
-  padding: 1rem 5rem;
+  height: 18vh;
   position: sticky;
   top: 0;
   z-index: 100;
+  margin-top: 3rem;
   transition: all 1s ease 0.2s;
+}
+
+@keyframes navFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  80% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .textContainer.collapsed {
@@ -109,42 +129,104 @@ nav {
   padding: 1rem 2rem;
 }
 
-.mainContainer.collapsed .profilePicture {
+.heroContainer.collapsed .profilePicture {
   width: 10rem;
   transition: width 1s ease 0.2s;
 }
 
-.mainContainer.collapsed .profileFrame {
+.heroContainer.collapsed .profileFrame {
   padding: 0.25rem;
   box-shadow: -0.3rem -0.3rem 0 0 var(--color-accent-orange);
   transition: all 1s ease 0.2s;
 }
 
-.mainContainer.collapsed .textContainer {
-  height: auto;
+.heroContainer.collapsed .textContainer {
+  height: 100%;
+  justify-content: space-between;
   padding: 1rem 2rem;
+  /* transition: all 1s ease 0.2s; */
+}
+
+.heroContainer.collapsed .titleContainer {
   transition: all 1s ease 0.2s;
 }
 
-.mainContainer.collapsed .title {
+.heroContainer.collapsed .title {
   font-size: 2rem;
-  transition: font-size 1s ease 0.2s;
-}
-
-.mainContainer.collapsed .subtitle {
-  font-size: 1rem;
-  transition: font-size 1s ease 0.2s;
-}
-
-.mainContainer.collapsed nav {
-  flex-direction: row;
-  gap: 2rem;
   transition: all 1s ease 0.2s;
 }
 
-.contentContainer {
-  padding: 2rem 5rem;
+.heroContainer.collapsed .subtitle {
+  margin: 0;
+  font-size: 1rem;
+  transition: all 1s ease 0.2s;
+}
+
+.heroContainer.collapsed nav {
+  flex-direction: row;
+  margin: 0;
+  align-items: flex-end;
+  gap: 2rem;
+  animation: navFadeIn 1s ease;
+  transition: all 1s ease 0.2s;
+}
+
+.contentFrame {
+  padding: 2rem;
+  min-height: 60vh;
+  max-height: 60vh;
+  max-width: 80rem;
+  background-color: var(--color-background-light);
+  border-radius: 2rem;
+  box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  border: 0.3rem solid var(--color-background-dark);
+  transition: all 0.3s ease;
+  font-family: var(--font-primary);
+  animation: shadowSlideIn 0.4s ease-out;
+  overflow: auto;
+}
+
+.contentFrame::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+.contentFrame::-webkit-scrollbar-track {
+  border-radius: 30px;
+  margin: 1rem 0;
+}
+
+.contentFrame::-webkit-scrollbar-thumb {
+  background: var(--color-accent-orange);
+  border-radius: 30px;
+  border: 2px solid var(--color-background-dark);
+}
+
+.contentFrame::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-orange);
+  opacity: 0.8;
+}
+
+@keyframes shadowSlideIn {
+  0% {
+    box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  }
+  25% {
+    box-shadow: 0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  }
+  50% {
+    box-shadow: 0.5rem 0.5rem 0 0 var(--color-accent-orange);
+  }
+  75% {
+    box-shadow: -0.5rem 0.5rem 0 0 var(--color-accent-orange);
+  }
+  100% {
+    box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  }
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  background-color: var(--color-background-dark);
-  color: var(--color-text-light);
+  overflow: visible;
 }

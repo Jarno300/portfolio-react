@@ -5,7 +5,8 @@
   --color-text-dark: #000000;
   --color-text-light: #e7e7e7;
   --color-background-dark: #121212;
-  --color-background-light: #ffffff;
+  --color-background-light: #e2d4b8;
+  --color-background-lighter: #f5f0e6;
   --color-accent-lightgrey: #b8b2b2;
   --color-background-mid: #5e5e5e;
   --color-accent-orange: #ff6600;
@@ -20,4 +21,5 @@
 html {
   scroll-behavior: smooth;
   overflow: hidden;
+  background-color: var(--color-background-dark);
 }
