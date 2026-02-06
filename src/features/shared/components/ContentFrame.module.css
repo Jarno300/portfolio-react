@@ -1,8 +1,7 @@
 .contentFrame {
   padding: 2rem;
-  min-height: 60vh;
-  max-height: 60vh;
-  max-width: 80rem;
+  min-height: 70vh;
+  max-height: 70vh;
   background-color: var(--color-background-dark);
   border-radius: 2rem;
   box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
@@ -48,5 +47,20 @@
   }
   100% {
     box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
+  }
+}
+
+@media (max-width: 900px) {
+  .contentFrame {
+    min-height: auto;
+    max-height: none;
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contentFrame {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
   }
 }

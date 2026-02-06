@@ -6,8 +6,8 @@
 }
 
 .contactContainer h1 {
-  font-size: 3rem;
-  color: var(--color-text-dark);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-text-light);
   margin-bottom: 1rem;
 }
 
@@ -23,7 +23,7 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 1.5rem;
-  background: white;
+  background: var(--color-background-mid);
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -45,7 +45,7 @@
 }
 
 .contactValue {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   color: var(--color-text-dark);
   word-break: break-word;
 }
@@ -58,4 +58,20 @@
 
 .contactLink:hover {
   color: var(--color-accent-orange);
+}
+
+@media (max-width: 600px) {
+  .contactContainer {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .contactItem {
+    padding: 1.25rem;
+  }
 }

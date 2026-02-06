@@ -20,6 +20,7 @@ function App() {
 
   const handleProfileClick = () => {
     setIsCollapsed(false);
+    setActiveSection(null);
   };
 
   return (

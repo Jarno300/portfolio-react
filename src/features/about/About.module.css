@@ -36,7 +36,7 @@
   padding: 1.5rem;
   border: 2px solid var(--color-accent-orange);
   border-radius: 12px;
-  background-color: var(--color-background-lighter);
+  background-color: var(--color-background-mid);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
@@ -52,24 +52,26 @@
   margin: 0 0 0.5rem 0;
   font-weight: bold;
   font-size: 1.1rem;
-  color: var(--color-text-dark);
+  color: var(--color-text-light);
 }
 
 .aboutItemPeriod {
   margin: 0 0 1rem 0;
   font-style: italic;
-  color: #666;
+  color: var(--color-text-light);
   font-size: 0.95rem;
 }
 
 .aboutItemDetails {
   margin: 0 0 1rem 0;
+  color: var(--color-text-light);
 }
 
 .aboutItemList {
   margin-bottom: 1rem;
   padding-left: 2rem;
   list-style-position: outside;
+  color: var(--color-text-light);
 }
 
 .aboutItemList li {

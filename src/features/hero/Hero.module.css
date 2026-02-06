@@ -9,6 +9,12 @@
   transition: padding 1s ease 0.2s;
 }
 
+.pictureWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .profileFrame {
   display: inline-block;
   padding: 0.5rem;
@@ -24,10 +30,11 @@
 }
 
 .title {
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
   font-weight: 600;
   font-family: var(--font-primary);
   color: var(--color-text-light);
+  line-height: 1.05;
 }
 
 .titleHighlight {
@@ -36,9 +43,10 @@
 
 .subtitle {
   margin-top: 1rem;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   color: var(--color-text-light);
   font-family: var(--font-primary);
+  letter-spacing: 0.08em;
 }
 
 .textContainer {
@@ -60,7 +68,7 @@ nav {
   margin-top: 3rem;
   display: flex;
   gap: 3rem;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .navLink {
@@ -99,12 +107,12 @@ nav {
 }
 
 .heroContainer.collapsed {
-  align-items: flex-start;
-  height: 18vh;
+  align-items: center;
+  height: 15vh;
   position: sticky;
   top: 0;
   z-index: 100;
-  margin-top: 3rem;
+  margin-top: 2rem;
   transition: all 1s ease 0.2s;
 }
 
@@ -123,12 +131,6 @@ nav {
   }
 }
 
-.textContainer.collapsed {
-  height: auto;
-  justify-content: flex-start;
-  padding: 1rem 2rem;
-}
-
 .heroContainer.collapsed .profilePicture {
   width: 10rem;
   transition: width 1s ease 0.2s;
@@ -142,13 +144,14 @@ nav {
 
 .heroContainer.collapsed .textContainer {
   height: 100%;
-  justify-content: space-between;
-  padding: 1rem 2rem;
+  justify-content: center;
+  gap: 2rem;
   /* transition: all 1s ease 0.2s; */
 }
 
 .heroContainer.collapsed .titleContainer {
   transition: all 1s ease 0.2s;
+  align-items: flex-start;
 }
 
 .heroContainer.collapsed .title {
@@ -165,10 +168,99 @@ nav {
 .heroContainer.collapsed nav {
   flex-direction: row;
   margin: 0;
-  align-items: flex-end;
-  gap: 2rem;
+  align-items: center;
+  gap: 1.5rem;
   animation: navFadeIn 1s ease;
   transition: all 1s ease 0.2s;
+}
+
+@media (max-width: 1024px) {
+  .profilePicture {
+    width: 22rem;
+  }
+
+  .textContainer {
+    padding: 3rem;
+  }
+
+  nav {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    flex-direction: column;
+    height: auto;
+    padding-top: 1rem;
+    gap: 1rem;
+  }
+
+  .pictureWrapper {
+    width: 100%;
+  }
+
+  .textContainer {
+    height: auto;
+    padding: 2rem 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .titleContainer {
+    align-items: center;
+  }
+
+  nav {
+    margin-top: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .profilePicture {
+    width: min(70vw, 18rem);
+  }
+
+  .heroContainer.collapsed {
+    height: auto;
+    margin-top: 1.5rem;
+  }
+
+  .heroContainer.collapsed .profilePicture {
+    width: min(35vw, 10rem);
+  }
+
+  .heroContainer.collapsed nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .textContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  nav {
+    gap: 1rem;
+  }
+
+  .navLink {
+    font-size: 0.95rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .heroContainer.collapsed .textContainer {
+    align-items: center;
+    text-align: center;
+  }
+
+  .heroContainer.collapsed .titleContainer {
+    align-items: center;
+  }
 }
 
 @keyframes shadowSlideIn {

@@ -1,6 +1,5 @@
 import project1 from "../assets/images/project-portfolio.png";
-import project2 from "../assets/images/project2.jpg";
-import project3 from "../assets/images/project3.jpg";
+import testImage from "../assets/images/test-image.png";
 import css3 from "../assets/icons/CSS3.png";
 import react from "../assets/icons/React.png";
 import typeScript from "../assets/icons/TypeScript.png";
@@ -27,16 +26,18 @@ export const projects: Project[] = [
   },
   {
     id: 1,
-    title: "project test2 title",
-    description:
-      "description of project test2. This is a longer description to test the layout and styling of the project item component.",
-    image: project2,
+    title: "Coming soon",
+    description: "Coming soon",
+    image: testImage,
+    githubUrl: "https://github.com/Jarno300/portfolio-react",
+    icons: [react, typeScript, css3],
   },
   {
     id: 2,
-    title: "project test3 title",
-    description:
-      "description of project test3. This is a longer description to test the layout and styling of the project item component.",
-    image: project3,
+    title: "Coming soon",
+    description: "Coming soon",
+    image: testImage,
+    githubUrl: "https://github.com/Jarno300/portfolio-react",
+    icons: [react, css3, html5],
   },
 ];

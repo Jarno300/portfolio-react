@@ -9,3 +9,11 @@
   overflow-x: visible;
   overflow-y: visible;
 }
+
+@media (max-width: 900px) {
+  .carouselFrame {
+    min-height: auto;
+    max-height: none;
+    padding: 1rem 0;
+  }
+}
