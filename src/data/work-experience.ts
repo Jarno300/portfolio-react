@@ -13,23 +13,41 @@ export const workExperience = [
     location: "Brussel",
     role: "Client Executive",
     period: "2021 - 2024",
-    responsibilities: [],
-    acquiredSkills: [],
+    responsibilities: [
+      "Onderhoud B2B relaties met het netwerk van Renault, Dacia en Nissan garages in Vlaanderen",
+      "Opvolgen, analyseren en rapporteren van de resultaten",
+      "Onderhandelen met klanten en verzekeringsmaatschappijen over voorwaarden, prijzen en strategieën",
+      "Samenwerken met interne teams om klanttevredenheid te waarborgen en problemen op te lossen",
+    ],
+    acquiredSkills: [
+      "Professionele communicatie",
+      "Onderhandelingsvaardigheden",
+      "Analytisch denken",
+    ],
   },
   {
     company: "Marsh",
     location: "Brussel",
     role: "Productiebeheerder",
     period: "2019 - 2021",
-    responsibilities: [],
-    acquiredSkills: [],
+    responsibilities: [
+      "Productie van verzekeringspolissen in verschillende takken",
+      "Klanten ondersteunen via digitale kanalen en fysiek op kantoor",
+    ],
+    acquiredSkills: [
+      "Klantgerichtheid",
+      "Stressbestendigheid",
+      "Probleemoplossend denken",
+    ],
   },
   {
     company: "BioPlanet",
     location: "Nossegem",
     role: "Bediende-verkoper",
     period: "2016 - 2018",
-    responsibilities: [],
-    acquiredSkills: [],
+    responsibilities: [
+      "Polyvalent werk in alle dagelijkse activiteiten van een biologische supermarkt",
+    ],
+    acquiredSkills: ["Verantwoordelijkheid", "Teamwork", "Flexibiliteit"],
   },
 ];
