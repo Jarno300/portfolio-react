@@ -21,10 +21,13 @@ export function AboutItem({
 }: AboutItemProps) {
   return (
     <div className={styles.aboutItem}>
-      <h3 className={styles.aboutItemTitle}>{title}</h3>
-      <p className={styles.aboutItemSubtitle}>
-        {subtitle} {period}
-      </p>
+      <div className={styles.aboutItemHeader}>
+        <div>
+          <h3 className={styles.aboutItemTitle}>{title}</h3>
+          <p className={styles.aboutItemSubtitle}>{subtitle}</p>
+        </div>
+        <span className={styles.aboutItemPeriod}>{period}</span>
+      </div>
 
       {details && <p className={styles.aboutItemDetails}>{details}</p>}
 

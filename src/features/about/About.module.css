@@ -1,3 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap");
+
+.aboutContainer {
+  --about-accent: #2d5c8a;
+  color: #1f2937;
+  font-family: "Source Sans 3", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.aboutHeader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.aboutIntro {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.aboutIntroEyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.aboutIntroTitle {
+  margin: 0.35rem 0 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.aboutIntroSubtitle {
+  margin: 0.4rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--about-accent);
+}
+
+.aboutIntroDescription {
+  margin: 0.75rem 0 0;
+  line-height: 1.6;
+  color: #334155;
+}
+
 .aboutNav {
   display: flex;
   flex-direction: row;
@@ -6,71 +58,90 @@
 }
 
 .aboutNavLink {
-  color: var(--color-text-dark);
+  color: #1f2937;
   text-decoration: none;
-  font-size: 1.2rem;
-  border: 1px solid var(--color-accent-orange);
-  padding: 0.5rem;
-  border-radius: 10px;
-  background-color: var(--color-background-lighter);
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background-color: #ffffff;
   transition: all 0.3s ease;
 }
 
 .aboutNavLink:hover {
-  background-color: var(--color-accent-orange);
-  color: var(--color-background-lighter);
+  background-color: #e2e8f0;
+  color: #0f172a;
 }
 
 .aboutNavLink.active {
-  font-weight: bold;
-  background-color: var(--color-accent-orange);
-  color: var(--color-background-lighter);
+  font-weight: 700;
+  background-color: var(--about-accent);
+  color: #ffffff;
+  border-color: var(--about-accent);
 }
 
 .aboutSection {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .aboutItem {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  border: 2px solid var(--color-accent-orange);
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  background-color: var(--color-background-mid);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.aboutItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.aboutItemHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  flex-wrap: wrap;
 }
 
 .aboutItemTitle {
-  margin: 0 0 0.75rem 0;
-  font-size: 1.5rem;
-  color: var(--color-accent-orange);
-  font-weight: 600;
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0f172a;
+  font-weight: 700;
 }
 
 .aboutItemSubtitle {
-  margin: 0 0 0.5rem 0;
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: var(--color-text-light);
+  margin: 0.25rem 0 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #475569;
 }
 
 .aboutItemPeriod {
-  margin: 0 0 1rem 0;
-  color: var(--color-text-light);
-  font-size: 0.95rem;
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .aboutItemDetails {
-  margin: 0 0 1rem 0;
-  color: var(--color-text-light);
+  margin: 0.75rem 0 0;
+  color: #334155;
+  line-height: 1.5;
 }
 
 .aboutItemList {
-  margin-bottom: 1rem;
-  padding-left: 2rem;
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
   list-style-position: outside;
-  color: var(--color-text-light);
+  color: #334155;
 }
 
 .aboutItemList li {
@@ -78,9 +149,288 @@
 }
 
 .aboutItemMeta {
-  margin-bottom: 0.5rem;
+  margin-top: 0.6rem;
+  color: #334155;
 }
 
 .aboutItemMetaLast {
   margin-bottom: 0;
+  color: #334155;
+}
+
+.cvActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cvDropdown {
+  position: relative;
+}
+
+.cvButton {
+  border: 1px solid var(--about-accent);
+  background-color: var(--about-accent);
+  color: #ffffff;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cvButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cvButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+
+.cvMenu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  min-width: 140px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  padding: 0.25rem 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0);
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.cvDropdown:hover .cvMenu,
+.cvDropdown:focus-within .cvMenu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cvChevron {
+  font-size: 0.75rem;
+  line-height: 1;
+  transform: translateY(1px);
+}
+
+.cvMenuItem {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  cursor: pointer;
+}
+
+.cvMenuItem:hover {
+  background-color: var(--about-accent);
+  color: #ffffff;
+}
+
+.cvMenuItem:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.cvMenuItem + .cvMenuItem {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cvHidden {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 210mm;
+}
+
+.cvContainer {
+  width: 100%;
+  max-width: 186mm;
+  padding: 1.2rem 1.4rem;
+  background-color: #ffffff;
+  color: #1f1f1f;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  font-size: 0.92rem;
+  font-family: "Source Sans 3", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.cvHeader {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.cvName {
+  margin: 0;
+  font-size: 2.05rem;
+  color: #1b1b1b;
+}
+
+.cvTitle {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.cvLayout {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.cvSidebar {
+  background-color: #f6f7f9;
+  border-radius: 10px;
+  padding: 1.1rem;
+  border: 1px solid #e3e6ea;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cvSidebarContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cvPhotoWrap {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cvPhoto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #2d5c8a;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.cvSidebarBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+  text-align: left;
+}
+
+.cvSidebarTitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #2d5c8a;
+  border-bottom: 1px solid #d8dce1;
+  padding-bottom: 0.25rem;
+}
+
+.cvContact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.86rem;
+  word-break: break-word;
+  color: #2a2a2a;
+  text-align: left;
+}
+
+.cvSummary {
+  margin: 0;
+  line-height: 1.45;
+  color: #2a2a2a;
+  text-align: left;
+}
+
+.cvSkillList {
+  margin: 0;
+  padding-left: 1rem;
+  color: #2a2a2a;
+  text-align: left;
+}
+
+.cvSkillList li {
+  margin-bottom: 0.25rem;
+}
+
+.cvMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cvSection {
+  margin-bottom: 0;
+}
+
+.cvSectionTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: #2d5c8a;
+  font-weight: 700;
+  border-bottom: 1px solid #e0e3e7;
+  padding-bottom: 0.3rem;
+}
+
+.cvItem {
+  margin-bottom: 0.75rem;
+}
+
+.cvItemHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 600;
+}
+
+.cvItemTitle {
+  color: #1b1b1b;
+}
+
+.cvItemPeriod {
+  color: #5a5a5a;
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.cvItemSubtitle {
+  margin-top: 0.1rem;
+  color: #5a5a5a;
+}
+
+.cvItemDetails {
+  margin: 0.35rem 0 0;
+  color: #5a5a5a;
+}
+
+.cvList {
+  margin: 0.35rem 0 0.4rem;
+  padding-left: 1.05rem;
+  color: #2a2a2a;
+}
+
+.cvList li {
+  margin-bottom: 0.25rem;
+}
+
+.cvMeta {
+  margin-top: 0.2rem;
+  color: #2a2a2a;
 }

@@ -1,5 +1,6 @@
 export interface WorkExperience {
   company: string;
+  location?: string;
   role: string;
   period: string;
   responsibilities: string[];
@@ -14,8 +15,7 @@ export const workExperience = [
     role: "Client Executive",
     period: "2021 - 2024",
     responsibilities: [
-      "Onderhoud B2B relaties met het netwerk van Renault, Dacia en Nissan garages in Vlaanderen",
-      "Opvolgen, analyseren en rapporteren van de resultaten",
+      "Onderhoud B2B relaties met het netwerk van Renault en Nissan garages in Vlaanderen",
       "Onderhandelen met klanten en verzekeringsmaatschappijen over voorwaarden, prijzen en strategieën",
       "Samenwerken met interne teams om klanttevredenheid te waarborgen en problemen op te lossen",
     ],

@@ -1,53 +1,103 @@
 .contentFrame {
-  padding: 2rem;
+  --frame-accent: var(--color-accent-orange);
+  --frame-surface: color-mix(
+    in srgb,
+    var(--color-background-dark) 80%,
+    black 20%
+  );
+  position: relative;
+  padding: 2.25rem;
   min-height: 70vh;
   max-height: 70vh;
-  background-color: var(--color-background-dark);
+  background: linear-gradient(140deg, #0f172a 0%, #111827 100%);
   border-radius: 2rem;
-  box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
-  border: 0.3rem solid var(--color-background-dark);
-  transition: all 0.3s ease;
+  box-shadow:
+    0 30px 60px rgba(15, 23, 42, 0.35),
+    0 10px 30px rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   font-family: var(--font-primary);
-  animation: shadowSlideIn 0.4s ease-out;
   overflow: auto;
+  isolation: isolate;
+}
+
+.contentFrame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.02) 30%,
+    rgba(45, 92, 138, 0.35) 60%,
+    rgba(255, 255, 255, 0.08)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.contentFrame::after {
+  content: "";
+  position: absolute;
+  inset: 1.25rem;
+  border-radius: calc(2rem - 1.25rem);
+  background: radial-gradient(
+    circle at top right,
+    rgba(45, 92, 138, 0.15),
+    transparent 55%
+  );
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.contentFrame:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 35px 70px rgba(15, 23, 42, 0.4),
+    0 12px 36px rgba(15, 23, 42, 0.25);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .contentFrame::-webkit-scrollbar {
-  width: 0.8rem;
+  width: 0.7rem;
 }
 
 .contentFrame::-webkit-scrollbar-track {
   border-radius: 30px;
-  margin: 1.5rem 0;
+  margin: 1.75rem 0;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .contentFrame::-webkit-scrollbar-thumb {
-  background: var(--color-background-dark);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.12)
+  );
   border-radius: 30px;
-  border: 2px solid var(--color-background-lighter);
+  border: 2px solid rgba(255, 255, 255, 0.08);
 }
 
 .contentFrame::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-orange);
+  background: linear-gradient(
+    180deg,
+    var(--frame-accent),
+    rgba(255, 255, 255, 0.3)
+  );
   opacity: 0.8;
-}
-
-@keyframes shadowSlideIn {
-  0% {
-    box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
-  }
-  25% {
-    box-shadow: 0.5rem -0.5rem 0 0 var(--color-accent-orange);
-  }
-  50% {
-    box-shadow: 0.5rem 0.5rem 0 0 var(--color-accent-orange);
-  }
-  75% {
-    box-shadow: -0.5rem 0.5rem 0 0 var(--color-accent-orange);
-  }
-  100% {
-    box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
-  }
 }
 
 @media (max-width: 900px) {
@@ -62,5 +112,10 @@
   .contentFrame {
     padding: 1.25rem;
     border-radius: 1.25rem;
+  }
+
+  .contentFrame::after {
+    inset: 0.8rem;
+    border-radius: calc(1.25rem - 0.8rem);
   }
 }
