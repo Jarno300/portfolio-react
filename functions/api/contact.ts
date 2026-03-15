@@ -1,6 +1,5 @@
 /// <reference path="../../src/types/cloudflare.d.ts" />
 import { EmailMessage } from "cloudflare:email";
-import { createMimeMessage } from "mimetext";
 
 interface ContactPayload {
   name: string;
@@ -51,24 +50,21 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     );
   }
 
-  const mime = createMimeMessage();
-  mime.setSender({ name: "Portfolio Contact", addr: env.CONTACT_FROM });
-  mime.setRecipient(env.CONTACT_TO);
-  mime.setSubject(subject);
-  mime.addMessage({
-    contentType: "text/plain",
-    data: [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      "",
-      message,
-    ].join("\n"),
-  });
+  const body = [`Name: ${name}`, `Email: ${email}`, "", message].join("\n");
+  const raw = [
+    `From: Portfolio Contact <${env.CONTACT_FROM}>`,
+    `To: ${env.CONTACT_TO}`,
+    `Subject: ${subject}`,
+    "MIME-Version: 1.0",
+    "Content-Type: text/plain; charset=UTF-8",
+    "",
+    body,
+  ].join("\r\n");
 
   const emailMessage = new EmailMessage(
     env.CONTACT_FROM,
     env.CONTACT_TO,
-    mime.asRaw(),
+    raw,
   );
 
   try {
