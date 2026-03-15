@@ -5,3 +5,11 @@ compatibility_date = "2024-01-01"
 
 [env.production]
 pages_build_output_dir = "dist"
+
+[[send_email]]
+name = "CONTACT_EMAIL"
+destination_address = "jarno.mommens@gmail.com"
+
+[vars]
+CONTACT_FROM = "no-reply@your-domain.com"
+CONTACT_TO = "jarno.mommens@gmail.com"

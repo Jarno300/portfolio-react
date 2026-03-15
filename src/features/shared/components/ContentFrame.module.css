@@ -30,13 +30,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.02) 30%,
-    rgba(45, 92, 138, 0.35) 60%,
-    rgba(255, 255, 255, 0.08)
-  );
+
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -54,11 +48,6 @@
   position: absolute;
   inset: 1.25rem;
   border-radius: calc(2rem - 1.25rem);
-  background: radial-gradient(
-    circle at top right,
-    rgba(45, 92, 138, 0.15),
-    transparent 55%
-  );
   pointer-events: none;
   opacity: 0.8;
 }
@@ -110,7 +99,7 @@
 
 @media (max-width: 600px) {
   .contentFrame {
-    padding: 1.25rem;
+    padding: 0;
     border-radius: 1.25rem;
   }
 
