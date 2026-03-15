@@ -6,7 +6,7 @@ import styles from "./App.module.css";
 const navItems = [
   { href: "cv", label: "CV" },
   { href: "projects", label: "Projects" },
-  { href: "contact", label: "Contact" },
+  //{ href: "contact", label: "Contact" },
 ];
 
 function App() {
