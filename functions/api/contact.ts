@@ -16,10 +16,16 @@ interface Env {
   CONTACT_TO: string;
 }
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "https://jarnomommens.dev",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
 const jsonResponse = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
     status,
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...corsHeaders },
   });
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
@@ -78,3 +84,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   return jsonResponse({ ok: true });
 };
+
+export const onRequestOptions: PagesFunction = async () =>
+  new Response(null, { status: 204, headers: corsHeaders });
