@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Contact.module.css";
 
 export default function Contact() {
-  const endpoint = "https://emailer.jarno-mommens.workers.dev";
+  const endpoint = "/api/contact";
   const [formState, setFormState] = useState({
     name: "",
     email: "",
