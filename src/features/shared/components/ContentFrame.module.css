@@ -1,14 +1,12 @@
 .contentFrame {
   --frame-accent: var(--color-accent-orange);
-  --frame-surface: color-mix(
-    in srgb,
-    var(--color-background-dark) 80%,
-    black 20%
-  );
+  --frame-surface: color-mix(in srgb,
+      var(--color-background-dark) 80%,
+      black 20%);
   position: relative;
   padding: 2.25rem;
   min-height: 70vh;
-  max-height: 70vh;
+  max-height: 75vh;
   background: linear-gradient(140deg, #0f172a 0%, #111827 100%);
   border-radius: 2rem;
   box-shadow:
@@ -71,21 +69,17 @@
 }
 
 .contentFrame::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.12)
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.12));
   border-radius: 30px;
   border: 2px solid rgba(255, 255, 255, 0.08);
 }
 
 .contentFrame::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    180deg,
-    var(--frame-accent),
-    rgba(255, 255, 255, 0.3)
-  );
+  background: linear-gradient(180deg,
+      var(--frame-accent),
+      rgba(255, 255, 255, 0.3));
   opacity: 0.8;
 }
 

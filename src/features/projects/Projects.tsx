@@ -5,21 +5,23 @@ import githubIcon from "../../assets/icons/github.svg";
 
 export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sortedProjects = [...projects].sort((a, b) => a.id - b.id);
 
   const goPrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? sortedProjects.length - 1 : prev - 1));
   };
 
   const goNext = () => {
-    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === sortedProjects.length - 1 ? 0 : prev + 1));
   };
 
-  const prevIndex = currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
-  const nextIndex = currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
+  const prevIndex = currentIndex === 0 ? sortedProjects.length - 1 : currentIndex - 1;
+  const nextIndex =
+    currentIndex === sortedProjects.length - 1 ? 0 : currentIndex + 1;
 
-  const prevProject = projects[prevIndex];
-  const currentProject = projects[currentIndex];
-  const nextProject = projects[nextIndex];
+  const prevProject = sortedProjects[prevIndex];
+  const currentProject = sortedProjects[currentIndex];
+  const nextProject = sortedProjects[nextIndex];
 
   return (
     <div className={styles.projectWrapper}>
@@ -80,8 +82,8 @@ export default function Projects() {
 
       <div className={styles.feedOnly}>
         <div className={styles.projectsFeed}>
-          {projects.map((project, index) => (
-            <article className={styles.feedCard} key={index}>
+          {sortedProjects.map((project) => (
+            <article className={styles.feedCard} key={project.id}>
               <img
                 className={styles.feedImage}
                 src={project.image}

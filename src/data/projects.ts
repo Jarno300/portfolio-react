@@ -21,12 +21,11 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 0,
-    title: "Portfolio website",
-    description:
-      "This is my personal portfolio website showcasing my projects and skills.",
-    image: project1,
-    githubUrl: "https://github.com/Jarno300/portfolio-react",
-    icons: [react, typeScript, css3, html5],
+    title: "Flock: Belgian Bird Data Pipeline",
+    description: "A data pipeline for collecting and analyzing bird observation data in Belgium.",
+    image: testImage,
+    githubUrl: "https://github.com/Jarno300/flock",
+    icons: [],
   },
   {
     id: 1,
@@ -39,10 +38,11 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Coming soon",
-    description: "Coming soon",
-    image: testImage,
+    title: "Portfolio website",
+    description:
+      "This is my personal portfolio website showcasing my projects and skills.",
+    image: project1,
     githubUrl: "https://github.com/Jarno300/portfolio-react",
-    icons: [],
+    icons: [react, typeScript, css3, html5],
   },
 ];

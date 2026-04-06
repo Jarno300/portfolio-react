@@ -35,7 +35,10 @@ export default function Cv() {
 
           const page = await pdf.getPage(pageNumber);
           const baseViewport = page.getViewport({ scale: 1 });
-          const availableWidth = container.clientWidth || baseViewport.width;
+          const availableWidth = Math.min(
+            container.clientWidth || baseViewport.width,
+            900,
+          );
           const scale = availableWidth / baseViewport.width;
           const viewport = page.getViewport({ scale });
           const outputScale = window.devicePixelRatio || 1;
@@ -51,6 +54,7 @@ export default function Cv() {
           canvas.height = Math.floor(viewport.height * outputScale);
           canvas.style.width = `${viewport.width}px`;
           canvas.style.height = `${viewport.height}px`;
+          canvas.style.maxWidth = "100%";
           canvas.className = styles.cvCanvas;
 
           const renderContext = {
