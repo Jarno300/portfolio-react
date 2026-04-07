@@ -48,7 +48,7 @@
 .projectContent h2 {
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
-  color: #a89cff;
+  color: #84efc0;
 }
 
 .projectContent p {
@@ -63,8 +63,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(130deg, #9685ff, #66d6ff);
-  color: #11162f;
+  background: linear-gradient(130deg, #8ff0c7, #4bcf95);
+  color: #062219;
   text-decoration: none;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -212,7 +212,7 @@
 .feedTitle {
   margin: 0;
   font-size: 1.35rem;
-  color: #a79aff;
+  color: #85eebf;
 }
 
 .feedDescription {

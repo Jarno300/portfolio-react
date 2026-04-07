@@ -4,8 +4,8 @@
   height: 100vh;
   min-height: 46rem;
   background:
-    radial-gradient(35rem 35rem at 6% 20%, rgba(173, 116, 255, 0.2), transparent 66%),
-    radial-gradient(30rem 30rem at 82% 22%, rgba(95, 180, 255, 0.16), transparent 66%),
+    radial-gradient(35rem 35rem at 6% 20%, rgba(96, 228, 177, 0.22), transparent 66%),
+    radial-gradient(30rem 30rem at 82% 22%, rgba(64, 189, 138, 0.16), transparent 66%),
     rgba(8, 11, 29, 0.72);
   border: 1px solid rgba(191, 200, 255, 0.18);
   border-radius: 2rem;
@@ -32,7 +32,7 @@
   padding: 0.6rem;
   border-radius: 1.4rem;
   border: 1px solid rgba(206, 212, 255, 0.35);
-  background: linear-gradient(155deg, rgba(143, 121, 255, 0.34), rgba(75, 200, 255, 0.12));
+  background: linear-gradient(155deg, rgba(93, 226, 172, 0.36), rgba(82, 202, 146, 0.14));
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.12),
     0 14px 38px rgba(0, 0, 0, 0.55);
@@ -61,10 +61,18 @@
 }
 
 .titleHighlight {
-  background: linear-gradient(120deg, #a192ff 0%, #65dbff 95%);
+  background: linear-gradient(
+    120deg,
+    #b8ffe4 0%,
+    #54dca7 34%,
+    #3fcf93 68%,
+    #b8ffe4 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  background-size: 200% 100%;
+  animation: flowingGradient 2.9s linear infinite;
 }
 
 .subtitle {
@@ -134,7 +142,7 @@ nav {
     color: var(--color-text);
   }
   50% {
-    color: #7ee3ff;
+    color: #77f2bd;
   }
   100% {
     color: var(--color-text);
@@ -335,5 +343,14 @@ nav {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes flowingGradient {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: -200% 50%;
   }
 }

@@ -26,9 +26,9 @@
   padding: 1.75rem;
   border-radius: 1.25rem;
   background:
-    radial-gradient(36rem 18rem at -10% -10%, rgba(147, 118, 255, 0.15), transparent 65%),
+    radial-gradient(36rem 18rem at -10% -10%, rgba(96, 228, 177, 0.18), transparent 65%),
     rgba(9, 14, 35, 0.74);
-  border: 1px solid rgba(181, 193, 255, 0.24);
+  border: 1px solid rgba(165, 232, 205, 0.26);
   box-shadow:
     0 20px 38px rgba(5, 8, 22, 0.48),
     inset 0 1px 0 rgba(255, 255, 255, 0.09);
@@ -82,8 +82,8 @@
 
 .formField input:focus,
 .formField textarea:focus {
-  border-color: #9f90ff;
-  box-shadow: 0 0 0 3px rgba(138, 130, 255, 0.22);
+  border-color: #64dba9;
+  box-shadow: 0 0 0 3px rgba(95, 226, 172, 0.24);
 }
 
 .formButton {
@@ -93,15 +93,15 @@
   padding: 0.75rem 1.6rem;
   font-size: 0.95rem;
   font-weight: 700;
-  background: linear-gradient(120deg, #9c8bff, #66d7ff);
-  color: #121734;
+  background: linear-gradient(120deg, #93f1c9, #4dcf97);
+  color: #062219;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .formButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(98, 116, 255, 0.3);
+  box-shadow: 0 10px 22px rgba(76, 201, 146, 0.3);
 }
 
 .formStatus {

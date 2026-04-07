@@ -1,17 +1,17 @@
 .contentFrame {
-  --frame-accent: #8d7dff;
+  --frame-accent: #52d8a2;
   position: relative;
   padding: 2rem;
   min-height: 70vh;
   max-height: 70vh;
   background:
-    radial-gradient(50rem 50rem at 0% 0%, rgba(150, 122, 255, 0.16), transparent 60%),
+    radial-gradient(50rem 50rem at 0% 0%, rgba(83, 214, 161, 0.18), transparent 60%),
     linear-gradient(155deg, rgba(10, 13, 35, 0.93) 0%, rgba(13, 18, 44, 0.93) 100%);
   border-radius: 2rem;
   box-shadow:
     0 30px 70px rgba(6, 8, 22, 0.55),
     inset 0 1px 0 rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(185, 196, 255, 0.2);
+  border: 1px solid rgba(157, 231, 202, 0.22);
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -38,7 +38,7 @@
   mask-composite: exclude;
   pointer-events: none;
   opacity: 0.95;
-  background: linear-gradient(120deg, rgba(142, 124, 255, 0.42), rgba(107, 211, 255, 0.12));
+  background: linear-gradient(120deg, rgba(88, 224, 172, 0.4), rgba(133, 238, 197, 0.15));
 }
 
 .contentFrame::after {
@@ -56,7 +56,7 @@
   box-shadow:
     0 36px 75px rgba(6, 8, 22, 0.62),
     inset 0 1px 0 rgba(255, 255, 255, 0.13);
-  border-color: rgba(193, 203, 255, 0.34);
+  border-color: rgba(179, 238, 214, 0.38);
 }
 
 .contentFrame::-webkit-scrollbar {
@@ -66,14 +66,14 @@
 .contentFrame::-webkit-scrollbar-track {
   border-radius: 30px;
   margin: 1.75rem 0;
-  background: rgba(184, 194, 255, 0.1);
+  background: rgba(169, 235, 210, 0.12);
 }
 
 .contentFrame::-webkit-scrollbar-thumb {
   background: linear-gradient(
     180deg,
-    rgba(164, 177, 255, 0.8),
-    rgba(125, 201, 255, 0.35)
+    rgba(119, 232, 190, 0.85),
+    rgba(84, 198, 151, 0.4)
   );
   border-radius: 30px;
   border: 2px solid rgba(7, 10, 27, 0.85);
@@ -83,7 +83,7 @@
   background: linear-gradient(
     180deg,
     var(--frame-accent),
-    rgba(113, 229, 255, 0.5)
+    rgba(153, 244, 207, 0.55)
   );
   opacity: 0.8;
 }

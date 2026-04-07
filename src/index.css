@@ -3,20 +3,20 @@
 :root {
   --font-primary: "Space Grotesk", "Segoe UI", sans-serif;
 
-  --color-brand: #8e7dff;
-  --color-accent: #8e7dff;
-  --color-accent-strong: #6f5cff;
-  --color-accent-soft: #171532;
+  --color-brand: #5de2ac;
+  --color-accent: #5de2ac;
+  --color-accent-strong: #2fc58e;
+  --color-accent-soft: #112722;
 
-  --color-bg: #060816;
-  --color-surface: #0d1129;
-  --color-surface-alt: #141936;
-  --color-border: rgba(165, 178, 255, 0.26);
+  --color-bg: #040d0d;
+  --color-surface: #0a1717;
+  --color-surface-alt: #102222;
+  --color-border: rgba(149, 231, 201, 0.24);
   --color-shadow: rgba(6, 8, 22, 0.75);
 
-  --color-text: #ecf0ff;
-  --color-text-muted: #b9c3ed;
-  --color-text-inverse: #080b1d;
+  --color-text: #e7fff6;
+  --color-text-muted: #afdccd;
+  --color-text-inverse: #04110f;
 }
 
 /* Legacy aliases (keep existing components working) */
@@ -41,7 +41,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: auto;
-  background: radial-gradient(circle at 20% 10%, #1f2554 0%, #060816 42%);
+  background: radial-gradient(circle at 20% 10%, #11382d 0%, #040d0d 42%);
 }
 
 body {
@@ -50,9 +50,9 @@ body {
   font-family: var(--font-primary);
   color: var(--color-text);
   background:
-    radial-gradient(45rem 45rem at 12% -8%, rgba(145, 126, 255, 0.34), transparent 65%),
-    radial-gradient(40rem 40rem at 88% 8%, rgba(73, 194, 255, 0.25), transparent 66%),
-    linear-gradient(165deg, #040613 0%, #060816 45%, #090e24 100%);
+    radial-gradient(45rem 45rem at 12% -8%, rgba(88, 224, 172, 0.26), transparent 65%),
+    radial-gradient(40rem 40rem at 88% 8%, rgba(75, 208, 154, 0.2), transparent 66%),
+    linear-gradient(165deg, #030a0a 0%, #040d0d 45%, #081615 100%);
   position: relative;
 }
 
