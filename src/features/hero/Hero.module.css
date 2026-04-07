@@ -1,52 +1,79 @@
 .heroContainer {
-  top: 0;
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: var(--color-bg);
+  min-height: 46rem;
+  background:
+    radial-gradient(35rem 35rem at 6% 20%, rgba(173, 116, 255, 0.2), transparent 66%),
+    radial-gradient(30rem 30rem at 82% 22%, rgba(95, 180, 255, 0.16), transparent 66%),
+    rgba(8, 11, 29, 0.72);
+  border: 1px solid rgba(191, 200, 255, 0.18);
+  border-radius: 2rem;
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 30px 80px rgba(6, 8, 22, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   align-items: center;
   position: relative;
-  transition: padding 1s ease 0.2s;
+  transition: all 0.7s ease;
+  overflow: hidden;
 }
 
 .pictureWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: revealUp 0.8s ease;
+  z-index: 1;
 }
 
 .profileFrame {
   display: inline-block;
-  padding: 0.5rem;
-  border-radius: 21%;
-  box-shadow: -0.5rem -0.5rem 0 0 var(--color-accent-orange);
-  animation: shadowSlideIn 1s ease-out;
+  padding: 0.6rem;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(206, 212, 255, 0.35);
+  background: linear-gradient(155deg, rgba(143, 121, 255, 0.34), rgba(75, 200, 255, 0.12));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 14px 38px rgba(0, 0, 0, 0.55);
+  transition: transform 0.3s ease;
 }
 
 .profilePicture {
   width: 30rem;
-  border-radius: 20%;
+  border-radius: 1rem;
   display: block;
+  filter: saturate(1.1);
+}
+
+.pictureWrapper:hover .profileFrame {
+  transform: translateY(-4px) scale(1.01);
 }
 
 .title {
   font-size: clamp(2.5rem, 5vw, 5rem);
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--font-primary);
-  color: var(--color-text-light);
+  color: var(--color-text);
   line-height: 1.05;
+  letter-spacing: -0.02em;
+  animation: revealUp 0.9s ease;
 }
 
 .titleHighlight {
-  color: var(--color-accent-orange);
+  background: linear-gradient(120deg, #a192ff 0%, #65dbff 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .subtitle {
   margin-top: 1rem;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  color: var(--color-text-light);
+  font-size: clamp(0.95rem, 1.8vw, 1.3rem);
+  color: var(--color-text-muted);
   font-family: var(--font-primary);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
+  animation: revealUp 1s ease;
 }
 
 .textContainer {
@@ -54,8 +81,9 @@
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  padding: 5rem;
+  padding: 4rem 4.5rem;
   width: 100%;
+  z-index: 1;
 }
 
 .titleContainer {
@@ -69,51 +97,60 @@ nav {
   display: flex;
   gap: 3rem;
   flex-direction: row;
+  animation: revealUp 1.1s ease;
 }
 
 .navLink {
   display: flex;
-  font-size: 1.25rem;
-  color: var(--color-text-light);
+  font-size: 1.1rem;
+  color: var(--color-text);
   text-decoration: none;
   font-family: var(--font-primary);
-  border-radius: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(180, 192, 255, 0.22);
+  background: rgba(15, 20, 48, 0.55);
+  backdrop-filter: blur(5px);
+  padding: 0.55rem 1rem;
+  transition: all 0.25s ease;
 }
 
 .navLinkText {
   display: inline-flex;
+  gap: 0.01rem;
 }
 
 .navLetter {
   display: inline-block;
-  color: var(--color-text-light);
-  transition: color 0.3s ease;
+  color: var(--color-text);
+  transition: color 0.2s ease;
 }
 
 .navLink:hover .navLetter {
-  animation: letterColorToggle 0.3s ease forwards;
+  animation: letterColorToggle 0.4s ease forwards;
 }
 
 @keyframes letterColorToggle {
   0% {
-    color: var(--color-text-light);
+    color: var(--color-text);
   }
   50% {
-    color: var(--color-accent-orange);
+    color: #7ee3ff;
   }
   100% {
-    color: var(--color-text-light);
+    color: var(--color-text);
   }
 }
 
 .heroContainer.collapsed {
   align-items: center;
-  height: 15vh;
+  height: 9rem;
+  min-height: 9rem;
   position: sticky;
-  top: 0;
+  top: 0.5rem;
   z-index: 100;
-  margin-top: 2rem;
-  transition: all 1s ease 0.2s;
+  margin-top: 0.25rem;
+  border-radius: 1.2rem;
+  transition: all 0.6s ease;
 }
 
 @keyframes navFadeIn {
@@ -132,37 +169,37 @@ nav {
 }
 
 .heroContainer.collapsed .profilePicture {
-  width: 10rem;
-  transition: width 1s ease 0.2s;
+  width: 7.2rem;
+  transition: width 0.6s ease;
 }
 
 .heroContainer.collapsed .profileFrame {
-  padding: 0.25rem;
-  box-shadow: -0.3rem -0.3rem 0 0 var(--color-accent-orange);
-  transition: all 1s ease 0.2s;
+  padding: 0.3rem;
+  border-radius: 1rem;
+  transition: all 0.6s ease;
 }
 
 .heroContainer.collapsed .textContainer {
   height: 100%;
   justify-content: center;
-  gap: 2rem;
-  /* transition: all 1s ease 0.2s; */
+  gap: 1rem;
+  padding: 1.5rem 2.3rem;
 }
 
 .heroContainer.collapsed .titleContainer {
-  transition: all 1s ease 0.2s;
+  transition: all 0.6s ease;
   align-items: flex-start;
 }
 
 .heroContainer.collapsed .title {
-  font-size: 2rem;
-  transition: all 1s ease 0.2s;
+  font-size: 1.5rem;
+  transition: all 0.6s ease;
 }
 
 .heroContainer.collapsed .subtitle {
   margin: 0;
-  font-size: 1rem;
-  transition: all 1s ease 0.2s;
+  font-size: 0.82rem;
+  transition: all 0.6s ease;
 }
 
 .heroContainer.collapsed nav {
@@ -171,7 +208,7 @@ nav {
   align-items: center;
   gap: 1.5rem;
   animation: navFadeIn 1s ease;
-  transition: all 1s ease 0.2s;
+  transition: all 0.6s ease;
 }
 
 @media (max-width: 1024px) {
@@ -180,7 +217,7 @@ nav {
   }
 
   .textContainer {
-    padding: 3rem;
+    padding: 2.8rem;
   }
 
   nav {
@@ -192,7 +229,8 @@ nav {
   .heroContainer {
     flex-direction: column;
     height: auto;
-    padding-top: 1rem;
+    min-height: auto;
+    padding-top: 1.25rem;
     gap: 1rem;
   }
 
@@ -225,7 +263,8 @@ nav {
 
   .heroContainer.collapsed {
     height: auto;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+    top: 0.25rem;
   }
 
   .heroContainer.collapsed .profilePicture {
@@ -286,4 +325,15 @@ nav {
   flex-direction: column;
   min-height: 100vh;
   overflow: visible;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

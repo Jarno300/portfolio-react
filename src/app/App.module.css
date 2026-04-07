@@ -2,15 +2,29 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: 90%;
-  margin: 0 auto;
-  gap: 2rem;
+  width: min(1300px, 92%);
+  margin: 0 auto 3rem;
+  gap: 2.5rem;
   overflow: visible;
+  padding: 1.5rem 0 2rem;
+  animation: appFadeIn 0.8s ease;
 }
 
 @media (max-width: 768px) {
   .app {
     width: 92%;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    padding-top: 1rem;
+  }
+}
+
+@keyframes appFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

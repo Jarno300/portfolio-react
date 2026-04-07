@@ -6,6 +6,7 @@
   width: 100%;
   position: relative;
   overflow: visible;
+  animation: contentRise 0.6s ease;
 }
 
 .carouselTrack {
@@ -27,32 +28,34 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
   padding: 1rem;
-  transition: all 0.5s ease;
+  border: 1px solid rgba(178, 191, 255, 0.2);
+  transition: all 0.35s ease;
   flex-shrink: 0;
 }
 
 .projectContent {
-  background: rgba(19, 19, 19, 0.85);
+  background: rgba(7, 11, 31, 0.72);
   border-radius: 1rem;
   padding: 1rem 2rem;
-  color: white;
-  backdrop-filter: blur(5px);
+  color: var(--color-text);
+  border: 1px solid rgba(179, 191, 255, 0.25);
+  backdrop-filter: blur(10px);
   min-width: 100%;
 }
 
 .projectContent h2 {
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
-  color: var(--color-accent-orange);
+  color: #a89cff;
 }
 
 .projectContent p {
   margin: 0 0 1.5rem 0;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--color-text-light);
+  color: var(--color-text-muted);
 }
 
 .githubLink {
@@ -60,13 +63,13 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--color-accent-orange);
-  color: white;
+  background: linear-gradient(130deg, #9685ff, #66d6ff);
+  color: #11162f;
   text-decoration: none;
   border-radius: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .githubLink img {
@@ -79,13 +82,13 @@
 .nextCard {
   width: 20rem;
   height: 55vh;
-  opacity: 0.6;
+  opacity: 0.56;
   cursor: pointer;
   z-index: 1;
   position: relative;
   box-shadow:
-    0 0 15px rgba(128, 128, 128, 0.2),
-    0 0 30px rgba(128, 128, 128, 0.1);
+    0 0 24px rgba(94, 147, 255, 0.22),
+    0 0 42px rgba(143, 108, 255, 0.2);
 }
 
 .prevCard::after,
@@ -115,6 +118,7 @@
 .prevCard:hover,
 .nextCard:hover {
   opacity: 0.8;
+  transform: scale(0.9);
 }
 
 .prevCard {
@@ -133,8 +137,8 @@
   z-index: 2;
   opacity: 1;
   box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.3),
-    0 0 40px rgba(255, 255, 255, 0.1);
+    0 0 34px rgba(123, 147, 255, 0.42),
+    0 0 64px rgba(98, 212, 255, 0.22);
 }
 
 .navButton {
@@ -184,10 +188,10 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
-  background: var(--color-background-dark);
+  background: linear-gradient(150deg, rgba(12, 17, 41, 0.92), rgba(15, 22, 50, 0.9));
   border-radius: 1.25rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(184, 194, 255, 0.2);
   overflow: hidden;
 }
 
@@ -208,14 +212,14 @@
 .feedTitle {
   margin: 0;
   font-size: 1.35rem;
-  color: var(--color-accent-orange);
+  color: #a79aff;
 }
 
 .feedDescription {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--color-text-light);
+  color: var(--color-text-muted);
 }
 
 .feedFooter {
@@ -245,11 +249,11 @@
   width: 3rem;
   height: 3rem;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.12);
 }
 
 @media (max-width: 1200px) {
@@ -374,5 +378,16 @@
 
   .projectContent p {
     font-size: 0.85rem;
+  }
+}
+
+@keyframes contentRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
