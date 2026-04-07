@@ -25,13 +25,16 @@ export default function ContentFrame({ activeSection }: ContentFrameProps) {
   if (!activeSection) return null;
 
   const isCarousel = activeSection === "projects";
+  const isCv = activeSection === "cv";
   const frameClassName = isCarousel
     ? carouselStyles.carouselFrame
-    : contentStyles.contentFrame;
+    : `${contentStyles.contentFrame} ${isCv ? contentStyles.cvFrame : ""}`;
 
   return (
-    <div key={activeSection} className={frameClassName}>
-      {renderSection()}
+    <div className={contentStyles.contentFrameSection}>
+      <div key={activeSection} className={frameClassName}>
+        {renderSection()}
+      </div>
     </div>
   );
 }

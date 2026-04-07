@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { GlobalWorkerOptions, getDocument } from "pdfjs-dist";
-import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+import { GlobalWorkerOptions, getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
+import workerSrc from "pdfjs-dist/legacy/build/pdf.worker.min.mjs?url";
 import cvFile from "../../assets/documents/CV-Jarno-Mommens-EN.pdf";
 import styles from "./Cv.module.css";
 
@@ -10,6 +10,7 @@ export default function Cv() {
   const viewerRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [useEmbeddedFallback, setUseEmbeddedFallback] = useState(false);
 
   useEffect(() => {
     let isCancelled = false;
@@ -22,10 +23,17 @@ export default function Cv() {
 
       setIsLoading(true);
       setError(null);
+      setUseEmbeddedFallback(false);
       container.innerHTML = "";
 
       try {
-        const loadingTask = getDocument(cvFile);
+        const pdfResponse = await fetch(cvFile);
+        if (!pdfResponse.ok) {
+          throw new Error(`Failed to fetch PDF (${pdfResponse.status})`);
+        }
+
+        const pdfData = await pdfResponse.arrayBuffer();
+        const loadingTask = getDocument({ data: new Uint8Array(pdfData) });
         const pdf = await loadingTask.promise;
 
         for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
@@ -68,11 +76,18 @@ export default function Cv() {
           };
 
           await page.render(renderContext).promise;
-          container.appendChild(canvas);
+          const canvasFrame = document.createElement("div");
+          canvasFrame.className = styles.cvCanvasFrame;
+          canvasFrame.appendChild(canvas);
+          container.appendChild(canvasFrame);
         }
       } catch (renderError) {
         if (!isCancelled) {
-          setError("Unable to render the PDF preview.");
+          console.error("CV PDF render failed", renderError);
+          setUseEmbeddedFallback(true);
+          setError(
+            "Canvas preview is unavailable in this browser context. Showing embedded preview instead.",
+          );
         }
       } finally {
         if (!isCancelled) {
@@ -90,16 +105,24 @@ export default function Cv() {
 
   return (
     <section className={styles.cvContainer}>
-      <header className={styles.cvHeader}>
+      <div className={styles.cvDownloadDock}>
         <a className={styles.cvDownload} href={cvFile} download>
-          Download PDF
+          Download
         </a>
-      </header>
-
+      </div>
       <div className={styles.cvViewer}>
         {isLoading && <div className={styles.cvStatus}>Loading preview…</div>}
         {error && <div className={styles.cvStatus}>{error}</div>}
-        <div ref={viewerRef} className={styles.cvPages} />
+        {useEmbeddedFallback ? (
+          <iframe
+            title="CV Preview"
+            src={cvFile}
+            className={styles.cvEmbed}
+            loading="lazy"
+          />
+        ) : (
+          <div ref={viewerRef} className={styles.cvPages} />
+        )}
       </div>
     </section>
   );
