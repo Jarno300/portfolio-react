@@ -27,7 +27,7 @@
 }
 
 .profileFrame {
-  --profile-border: 4px;
+  --profile-border: 2px;
   position: relative;
   display: inline-block;
   padding: var(--profile-border);
@@ -155,7 +155,7 @@
   padding: 0.5rem;
   border-radius: 999px;
   background: rgba(3, 14, 14, 0.48);
-  border: 1px solid rgba(129, 240, 199, 0.2);
+  border: none;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
   width: fit-content;
 }
@@ -321,7 +321,7 @@
 }
 
 .heroContainer.collapsed .profileFrame {
-  --profile-border: 2px;
+  --profile-border: 1px;
   padding: var(--profile-border);
   border-radius: 1rem;
   transition: all 0.72s ease;
