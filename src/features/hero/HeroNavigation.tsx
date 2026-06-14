@@ -83,6 +83,7 @@ export default function HeroNavigation({
           href={SOCIAL_LINKS.linkedin}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
         >
           <LinkedInIcon />
           <span>LinkedIn</span>
@@ -92,6 +93,7 @@ export default function HeroNavigation({
           href={SOCIAL_LINKS.github}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub profile"
         >
           <GitHubIcon />
           <span>GitHub</span>

@@ -1,8 +1,27 @@
+import { Suspense, lazy } from "react";
 import Projects from "../../projects/Projects.tsx";
 import Contact from "../../contact/Contact.tsx";
 import contentStyles from "./ContentFrame.module.css";
 import carouselStyles from "./CarouselFrame.module.css";
-import Cv from "../../cv/Cv.tsx";
+
+const Cv = lazy(() => import("../../cv/Cv.tsx"));
+
+function CvFallback() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "70vh",
+        color: "var(--color-text-muted)",
+        fontFamily: "var(--font-primary)",
+      }}
+    >
+      Loading CV preview…
+    </div>
+  );
+}
 
 interface ContentFrameProps {
   activeSection: string | null;
@@ -12,7 +31,11 @@ export default function ContentFrame({ activeSection }: ContentFrameProps) {
   const renderSection = () => {
     switch (activeSection) {
       case "cv":
-        return <Cv />;
+        return (
+          <Suspense fallback={<CvFallback />}>
+            <Cv />
+          </Suspense>
+        );
       case "projects":
         return <Projects />;
       case "contact":

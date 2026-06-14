@@ -49,21 +49,22 @@
   pointer-events: none;
   background: conic-gradient(
     from 0deg,
-    rgba(14, 27, 46, 0.2) 0deg,
-    rgba(157, 230, 255, 0.92) 42deg,
-    rgba(119, 242, 189, 0.95) 92deg,
-    rgba(126, 221, 255, 0.86) 138deg,
-    rgba(188, 216, 255, 0.2) 165deg,
-    transparent 196deg,
-    transparent 236deg,
-    rgba(157, 230, 255, 0.9) 268deg,
-    rgba(119, 242, 189, 0.92) 306deg,
-    rgba(120, 214, 255, 0.84) 336deg,
-    rgba(14, 27, 46, 0.2) 360deg
+    rgba(119, 242, 189, 0.12) 0deg,
+    rgba(119, 242, 189, 0.24) 15deg,
+    rgba(157, 230, 255, 0.85) 50deg,
+    rgba(119, 242, 189, 0.9) 92deg,
+    rgba(126, 221, 255, 0.8) 138deg,
+    rgba(188, 216, 255, 0.15) 165deg,
+    rgba(119, 242, 189, 0.08) 210deg,
+    rgba(119, 242, 189, 0.08) 250deg,
+    rgba(157, 230, 255, 0.85) 268deg,
+    rgba(119, 242, 189, 0.9) 306deg,
+    rgba(120, 214, 255, 0.78) 336deg,
+    rgba(119, 242, 189, 0.12) 360deg
   );
   transform: translate(-50%, -50%) rotate(0deg) scale(1);
-  will-change: transform, opacity, filter;
-  animation: profileBorderOrbitPulse 3.8s linear infinite;
+  will-change: transform, opacity;
+  animation: profileBorderOrbitPulse 4.2s linear infinite;
 }
 
 .profilePicture {
@@ -81,7 +82,8 @@
 }
 
 .pictureWrapper:hover .profileFrame::before {
-  animation: profileBorderOrbitPulseHover 2.6s linear infinite;
+  animation: profileBorderOrbitPulseHover 2.8s linear infinite;
+  will-change: transform, opacity;
 }
 
 .title {
@@ -210,6 +212,33 @@
   .socialBtnLinkedin:hover,
   .socialBtnGithub:hover {
     transform: none;
+  }
+
+  .profileFrame::before {
+    animation: none;
+    opacity: 0.42;
+  }
+
+  .titleHighlight {
+    animation: none;
+    background-position: 0% 50%;
+  }
+
+  .pictureWrapper:hover .profileFrame {
+    transform: none;
+  }
+
+  .navLink:hover {
+    transform: none;
+  }
+
+  .navLink:hover .navLetter {
+    animation: none;
+    color: var(--color-text);
+  }
+
+  .heroContainer.collapsed {
+    transition: none;
   }
 }
 
@@ -546,36 +575,30 @@
 
 @keyframes profileBorderOrbitPulse {
   0% {
-    opacity: 0.38;
-    filter: saturate(0.9) brightness(0.82);
+    opacity: 0.42;
     transform: translate(-50%, -50%) rotate(0deg) scale(0.94);
   }
   50% {
-    opacity: 1;
-    filter: saturate(1.42) brightness(1.22);
+    opacity: 0.92;
     transform: translate(-50%, -50%) rotate(180deg) scale(1.11);
   }
   100% {
-    opacity: 0.38;
-    filter: saturate(0.9) brightness(0.82);
+    opacity: 0.42;
     transform: translate(-50%, -50%) rotate(360deg) scale(0.94);
   }
 }
 
 @keyframes profileBorderOrbitPulseHover {
   0% {
-    opacity: 0.52;
-    filter: saturate(1) brightness(0.9);
+    opacity: 0.55;
     transform: translate(-50%, -50%) rotate(0deg) scale(0.96);
   }
   50% {
-    opacity: 1;
-    filter: saturate(1.5) brightness(1.26);
+    opacity: 0.95;
     transform: translate(-50%, -50%) rotate(180deg) scale(1.13);
   }
   100% {
-    opacity: 0.52;
-    filter: saturate(1) brightness(0.9);
+    opacity: 0.55;
     transform: translate(-50%, -50%) rotate(360deg) scale(0.96);
   }
 }

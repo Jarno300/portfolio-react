@@ -96,7 +96,7 @@ export default function Cv() {
       }
     };
 
-    renderPdf();
+    void renderPdf();
 
     return () => {
       isCancelled = true;

@@ -8,6 +8,7 @@ import html5 from "../assets/icons/HTML5.png";
 import javaSpringboot from "../assets/icons/Java-Springboot.png";
 import java from "../assets/icons/Java.png";
 import vue from "../assets/icons/Vue.png";
+import brainstorm from "../assets/images/brainstorm.png";
 
 export interface Project {
   id: number;
@@ -21,6 +22,14 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 0,
+    title: "Brainstorm: AI knowledge mapping with langchain",
+    description: "A tool that uses AI to map and visualize knowledge, helping users to brainstorm and organize ideas effectively.",
+    image: brainstorm,
+    githubUrl: "https://github.com/Jarno300/brainstorm",
+    icons: [],
+  },
+  {
+    id: 1,
     title: "Flock: Belgian Bird Data Pipeline",
     description: "A data pipeline for collecting and analyzing bird observation data in Belgium.",
     image: testImage,
@@ -28,7 +37,7 @@ export const projects: Project[] = [
     icons: [],
   },
   {
-    id: 1,
+    id: 2,
     title: "Investment Tracker",
     description:
       "Track investments and portfolio performance across different asset classes and markets. Work in progress.",
@@ -37,7 +46,7 @@ export const projects: Project[] = [
     icons: [vue, typeScript, javaSpringboot, java],
   },
   {
-    id: 2,
+    id: 3,
     title: "Portfolio website",
     description:
       "This is my personal portfolio website showcasing my projects and skills.",

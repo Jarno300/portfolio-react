@@ -37,7 +37,7 @@ export default function Hero({
             Jarno <span className={styles.titleHighlight}>Mommens</span>
           </h1>
 
-          <p className={styles.subtitle}>DATA & CLOUD ENGINEER</p>
+          <p className={styles.subtitle}>SOFTWARE DEVELOPER</p>
         </div>
 
         <HeroNavigation items={navItems} onNavigate={onNavigate} />

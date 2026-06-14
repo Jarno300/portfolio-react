@@ -15,7 +15,6 @@
   justify-content: center;
   gap: 0;
   position: relative;
-  min-width: 120rem;
   height: 50vh;
   overflow: visible;
 }
@@ -168,14 +167,7 @@
   width: 100%;
 }
 
-.carouselOnly {
-  width: 100%;
-}
 
-.feedOnly {
-  display: none;
-  width: 100%;
-}
 
 .projectsFeed {
   display: flex;
@@ -282,14 +274,6 @@
 }
 
 @media (max-width: 900px) {
-  .carouselOnly {
-    display: none;
-  }
-
-  .feedOnly {
-    display: block;
-  }
-
   .projectContainer {
     flex-direction: column;
     gap: 1.5rem;
@@ -297,7 +281,6 @@
 
   .carouselTrack {
     width: 100%;
-    min-width: 0;
     height: auto;
     gap: 1rem;
   }

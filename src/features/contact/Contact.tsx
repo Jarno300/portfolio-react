@@ -8,6 +8,7 @@ export default function Contact() {
     email: "",
     subject: "",
     message: "",
+    website: "", // honeypot — hidden from humans, filled by bots
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
@@ -23,14 +24,24 @@ export default function Contact() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    /* Honeypot check — silently absorb bot submissions */
+    if (formState.website.trim().length > 0) {
+      setStatus("success");
+      setStatusMessage("Message sent. Thanks for reaching out!");
+      setFormState({ name: "", email: "", subject: "", message: "", website: "" });
+      return;
+    }
+
     setStatus("sending");
     setStatusMessage("");
 
     try {
+      const { name, email, subject, message } = formState;
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formState),
+        body: JSON.stringify({ name, email, subject, message }),
       });
 
       if (!response.ok) {
@@ -42,7 +53,7 @@ export default function Contact() {
 
       setStatus("success");
       setStatusMessage("Message sent. Thanks for reaching out!");
-      setFormState({ name: "", email: "", subject: "", message: "" });
+      setFormState({ name: "", email: "", subject: "", message: "", website: "" });
     } catch (error) {
       setStatus("error");
       setStatusMessage(
@@ -58,10 +69,29 @@ export default function Contact() {
       <h1>Get in Touch</h1>
 
       <div className={styles.contactLayout}>
-        <form className={styles.contactForm} onSubmit={handleSubmit}>
+        <form
+          className={styles.contactForm}
+          onSubmit={(e) => {
+            void handleSubmit(e);
+          }}
+        >
           <div className={styles.formHeader}>
             <h2>Send a message</h2>
             <p>Your message will be delivered directly to my inbox.</p>
+          </div>
+
+          {/* Honeypot — invisible to humans */}
+          <div style={{ position: "absolute", left: "-9999px", opacity: 0 }} aria-hidden="true">
+            <label htmlFor="hpt-website">Website</label>
+            <input
+              type="text"
+              id="hpt-website"
+              name="website"
+              value={formState.website}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+            />
           </div>
 
           <div className={styles.formGrid}>
@@ -73,6 +103,7 @@ export default function Contact() {
                 value={formState.name}
                 onChange={handleChange}
                 placeholder="Your name"
+                autoComplete="name"
                 required
               />
             </label>
@@ -85,6 +116,7 @@ export default function Contact() {
                 value={formState.email}
                 onChange={handleChange}
                 placeholder="you@email.com"
+                autoComplete="email"
                 required
               />
             </label>
@@ -97,6 +129,7 @@ export default function Contact() {
                 value={formState.subject}
                 onChange={handleChange}
                 placeholder="Project inquiry"
+                autoComplete="off"
               />
             </label>
           </div>
