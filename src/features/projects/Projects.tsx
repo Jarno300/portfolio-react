@@ -4,38 +4,47 @@ import styles from "./Projects.module.css";
 import githubIcon from "../../assets/icons/github.svg";
 
 /* ------------------------------------------------------------------ */
-/*  Shared card content — used by both carousel and feed layouts      */
+/*  Shared sub-components                                             */
 /* ------------------------------------------------------------------ */
 
+function ProjectBottomRow({ project }: { project: Project }) {
+  return (
+    <div className={styles.bottomRow}>
+      <div className={styles.iconsRow}>
+        {project.icons?.map((icon, idx) => (
+          <span key={idx} className={styles.iconWrapper}>
+            <img
+              src={icon.src}
+              alt={icon.name}
+              className={styles.icon}
+              loading="lazy"
+            />
+            <span className={styles.tooltip}>{icon.name}</span>
+          </span>
+        ))}
+      </div>
+      {project.githubUrl && (
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.githubLink}
+        >
+          <img src={githubIcon} alt="GitHub" />
+          <span>View code</span>
+        </a>
+      )}
+    </div>
+  );
+}
+
+/** Full card body — used by the desktop carousel. */
 function ProjectContent({ project }: { project: Project }) {
   return (
     <>
       <h2>{project.title}</h2>
       <p>{project.description}</p>
-      <div className={styles.bottomRow}>
-        <div className={styles.iconsRow}>
-          {project.icons?.map((icon, idx) => (
-            <img
-              key={idx}
-              src={icon}
-              alt={`Technology ${idx + 1}`}
-              className={styles.icon}
-              loading="lazy"
-            />
-          ))}
-        </div>
-        {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.githubLink}
-          >
-            <img src={githubIcon} alt="GitHub" />
-            <span>View code</span>
-          </a>
-        )}
-      </div>
+      <ProjectBottomRow project={project} />
     </>
   );
 }
@@ -132,7 +141,7 @@ function FeedView({ projects }: { projects: Project[] }) {
             </header>
             <p className={styles.feedDescription}>{project.description}</p>
             <div className={styles.feedFooter}>
-              <ProjectContent project={project} />
+              <ProjectBottomRow project={project} />
             </div>
           </div>
         </article>
@@ -163,6 +172,8 @@ function useMediaQuery(query: string): boolean {
 /* ------------------------------------------------------------------ */
 
 export default function Projects() {
+  /* `projects` is a module-level constant so the empty deps are safe —
+     the reference will never change. */
   const sortedProjects = useMemo(
     () => [...projects].sort((a, b) => a.id - b.id),
     [],

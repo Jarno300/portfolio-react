@@ -248,6 +248,33 @@
   transform: scale(1.12);
 }
 
+.iconWrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 0.35rem);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.25rem 0.55rem;
+  background: rgba(0, 0, 0, 0.82);
+  color: #e7fff6;
+  font-size: 0.72rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  border-radius: 0.35rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.iconWrapper:hover .tooltip {
+  opacity: 1;
+}
+
 @media (max-width: 1200px) {
   .carouselTrack {
     min-width: 100%;

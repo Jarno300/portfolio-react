@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Hero from "../features/hero/Hero.tsx";
 import ContentFrame from "../features/shared/components/ContentFrame.tsx";
+import ErrorBoundary from "../features/shared/components/ErrorBoundary.tsx";
 import styles from "./App.module.css";
 
-const VALID_SECTIONS = ["cv", "projects", "contact"];
+const VALID_SECTIONS = ["cv", "projects"];
 
 function hashToSection(hash: string): string | null {
   const slug = hash.replace(/^#/, "");
@@ -13,7 +14,6 @@ function hashToSection(hash: string): string | null {
 const navItems = [
   { href: "cv", label: "CV" },
   { href: "projects", label: "Projects" },
-  //{ href: "contact", label: "Contact" },
 ];
 
 function App() {
@@ -49,7 +49,9 @@ function App() {
         onNavigate={handleNavigation}
         onProfileClick={handleProfileClick}
       />
-      <ContentFrame activeSection={activeSection} />
+      <ErrorBoundary>
+        <ContentFrame activeSection={activeSection} />
+      </ErrorBoundary>
     </div>
   );
 }

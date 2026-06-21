@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+# Jarno Mommens — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio built with **React 19**, **TypeScript**, and **Vite** (Rolldown),
+deployed on **Cloudflare Pages**.
 
-Currently, two official plugins are available:
+## Tech stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Layer          | Choice                                      |
+| -------------- | ------------------------------------------- |
+| Framework      | React 19                                    |
+| Language       | TypeScript (strict)                         |
+| Bundler        | Vite 7 (Rolldown)                           |
+| Linting        | ESLint 9 (flat config, type-aware rules)    |
+| Hosting        | Cloudflare Pages                            |
+| PDF rendering  | pdfjs-dist (canvas-based, lazy-loaded)      |
 
-## React Compiler
+## Project structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  app/             App shell, entry point
+  features/
+    hero/          Full-viewport hero with collapsed sticky nav
+    projects/      Carousel (desktop) / feed (mobile) project showcase
+    cv/            Lazy-loaded interactive PDF viewer
+    shared/        Reusable components (ContentFrame, ErrorBoundary)
+  data/            Static data (projects list, social links)
+  types/           Ambient type declarations
+  assets/          Images, icons, documents
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev        # Start dev server
+npm run build      # Type-check + production build
+npm run preview    # Preview production build locally
 ```
+
+## Deployment
+
+Pushed to the `main` branch → auto-deploys to Cloudflare Pages.
+Build command: `npm run build`
+Output directory: `dist`
+
+## Design decisions
+
+- **No router** — URL hash-based navigation keeps the bundle tiny while
+  preserving deep-linking and back-button support.
+- **Sections stay mounted** — hidden with `display: none` instead of being
+  torn down on tab switches, so heavy components like the PDF viewer are
+  never re-initialized.
+- **Lazy-loaded CV** — `pdfjs-dist` (~1.3 MB) is code-split with `React.lazy`
+  so it never blocks the initial paint.
+- **Carousel ↔ feed** — a `useMediaQuery` hook switches between a 3D-ish
+  carousel on desktop and a stacked feed on mobile so neither experience
+  feels compromised.

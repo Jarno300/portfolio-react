@@ -77,7 +77,6 @@
 }
 
 .pictureWrapper:hover .profileFrame {
-  transform: translateY(-4px) scale(1.01);
   box-shadow: none;
 }
 
@@ -191,7 +190,6 @@
 
 .socialBtnLinkedin:hover {
   background: #004182;
-  transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(10, 102, 194, 0.45);
 }
 
@@ -204,16 +202,10 @@
 
 .socialBtnGithub:hover {
   background: #1c2128;
-  transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .socialBtnLinkedin:hover,
-  .socialBtnGithub:hover {
-    transform: none;
-  }
-
   .profileFrame::before {
     animation: none;
     opacity: 0.42;
@@ -222,14 +214,6 @@
   .titleHighlight {
     animation: none;
     background-position: 0% 50%;
-  }
-
-  .pictureWrapper:hover .profileFrame {
-    transform: none;
-  }
-
-  .navLink:hover {
-    transform: none;
   }
 
   .navLink:hover .navLetter {
@@ -293,7 +277,6 @@
 }
 
 .navLink:hover {
-  transform: translateY(-2px);
   border-color: rgba(142, 255, 214, 0.78);
   box-shadow:
     inset 0 1px 0 rgba(226, 255, 243, 0.22),
