@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
-import cvFile from "../../assets/documents/cv-jarno-mommens-en.pdf";
+import cvFile from "../../assets/documents/CV-Jarno-Mommens-EN.pdf";
 import styles from "./Cv.module.css";
 
 /* Pinned to the installed version so the worker always matches the library. */
